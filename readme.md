@@ -19,6 +19,12 @@ First of all, create sensorario_comments table:
 
 Second, add module SensorarioModuleComment in your config file.
 
+#Install using github
+
+To add SensorarioModuleComment using github, use this command:
+
+$ git clone git@github.com:sensorario/SensorarioModuleComment
+
 ##Usage
 
 When at any point of your website you want to bring up a series of comments, use this widget and indicates a semantic id that defines the thread of comments.
