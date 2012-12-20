@@ -4,16 +4,20 @@ $(function(){
             url: 'index.php?r=SensorarioModuleComment/comments/number&semanticId=' + semanticId,
             dataType: 'json',
             success: function(json) {
-                $('#number_comment_' + semanticId).html('totale commenti: ' + json.totaleCommenti);
-                $('#comments_comment_' + semanticId).html('');
-                for(commento in json.commenti) {
-                    $('#comments_comment_' + semanticId).append(
-                        $('<span>').addClass('SensorarioModuleCommentDateTime').html(json.commenti[commento].datetime)
-                    ).append(
-                        $('<strong>').addClass('SensorarioModuleCommentUser').html(json.commenti[commento].user)
-                    ).append(
-                        $('<span>').addClass('SensorarioModuleCommentComment').html(json.commenti[commento].comment)
-                    ).append('<br>');
+                if(json.message) {
+                    alert(json.message);
+                } else {
+                    $('#number_comment_' + semanticId).html('totale commenti: ' + json.totaleCommenti);
+                    $('#comments_comment_' + semanticId).html('');
+                    for(commento in json.commenti) {
+                        $('#comments_comment_' + semanticId).append(
+                            $('<span>').addClass('SensorarioModuleCommentDateTime').html(json.commenti[commento].datetime)
+                        ).append(
+                            $('<strong>').addClass('SensorarioModuleCommentUser').html(json.commenti[commento].user)
+                        ).append(
+                            $('<span>').addClass('SensorarioModuleCommentComment').html(json.commenti[commento].comment)
+                        ).append('<br>');
+                    }
                 }
             }
         });

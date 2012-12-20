@@ -34,12 +34,19 @@ class CommentsController extends Controller
      */
     public function actionNumber($semanticId)
     {
-        $totaleCommenti = $contatore = count(SensorarioComments::model()->findAll(array(
-                    'condition' => 'semantic_id=:semanticId',
-                    'params' => array(
-                        ':semanticId' => $semanticId
-                    )
-                )));
+        try {
+            $totaleCommenti = $contatore = count(SensorarioComments::model()->findAll(array(
+                        'condition' => 'semantic_id=:semanticId',
+                        'params' => array(
+                            ':semanticId' => $semanticId
+                        )
+                    )));
+        } catch (Exception $e) {
+            echo json_encode(array(
+                'message' => $e->getMessage()
+            ));
+            Yii::app()->end();
+        }
 
         $arrayCommensForJsonResponse = array();
 
