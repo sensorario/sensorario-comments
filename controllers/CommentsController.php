@@ -15,10 +15,7 @@ class CommentsController extends Controller
         $now = new DateTime();
 
         $comment = new SensorarioComments();
-        $comment->comment = $_POST['comment'];
-        $comment->semantic_id = $_POST['semantic_id'];
-        $comment->datetime = $now->format('Y-m-d H:i:s');
-        $comment->user = Yii::app()->user->id;
+        $comment->attributes = $_POST['SensorarioModuleComment'];
         $comment->save();
 
         echo json_encode(true);

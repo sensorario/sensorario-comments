@@ -35,9 +35,13 @@ When at any point of your website you want to bring up a series of comments, use
 
 ###v1.1 (???????? ????, ????)
 
+Enhancements:
+
+ - Improve fields name [fixed #5]
+
 BugFixes:
 
- - #6 The table "sensorario_comments" for active record class "SensorarioComments" cannot be found in the database.
+ - The table "sensorario_comments" for active record class "SensorarioComments" cannot be found in the database. [fixed #6]
 
 ###v1.0 (December 16th, 2012) 
 

@@ -12,11 +12,11 @@ $(function(){
                     for(commento in json.commenti) {
                         $('#comments_comment_' + semanticId).append(
                             $('<span>').addClass('SensorarioModuleCommentDateTime').html(json.commenti[commento].datetime)
-                        ).append(
+                            ).append(
                             $('<strong>').addClass('SensorarioModuleCommentUser').html(json.commenti[commento].user)
-                        ).append(
+                            ).append(
                             $('<span>').addClass('SensorarioModuleCommentComment').html(json.commenti[commento].comment)
-                        ).append('<br>');
+                            ).append('<br>');
                     }
                 }
             }
@@ -26,13 +26,18 @@ $(function(){
         var form_comment_id = 'form_comment_' + $(this).attr('id');
         var semanticId = $(this).attr('id');
         var field_name = '_comment_' + semanticId;
+        var username = $(this).attr(semanticId+'-user');
         $(this).append($('<div>').addClass('totaleCommenti').attr('id','number'+field_name));
         $(this).append($('<input>').attr('type','text').attr('id','input'+field_name));
         $(this).append($('<button>').addClass('input_button').attr('id',field_name).html('invia commento').click(function(event){
             event.preventDefault();
+            var date = new Date();
+            var datetime = date.getYear()+'-'+date.getMonth()+'-'+date.getDay()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
             $.post($('#'+form_comment_id).attr('action'),{
-                'comment':$('#input'+field_name).attr('value'),
-                'semantic_id':semanticId
+                'SensorarioModuleComment[comment]':$('#input'+field_name).attr('value'),
+                'SensorarioModuleComment[semantic_id]':semanticId,
+                'SensorarioModuleComment[datetime]':datetime,
+                'SensorarioModuleComment[user]':username
             },function(json){
                 loadContents(semanticId);
                 $('#input'+field_name).attr('value','')

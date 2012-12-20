@@ -56,7 +56,7 @@ class CommentLoader extends CWidget
             $filename = dirname(__FILE__) . '/components/CommentLoader.js';
             $position = CClientScript::POS_READY;
             $sourceJs = file_get_contents($filename);
-            echo '<div id="' . ($this->semanticId) . '" rel="SensorarioModuleComment"></div>';
+            echo '<div id="' . ($this->semanticId) . '" ' . ($this->semanticId) . '-user="' . (Yii::app()->user->id) . '" rel="SensorarioModuleComment"></div>';
             Yii::app()->getClientScript()->registerScript('prova', $sourceJs, $position);
             Yii::app()->getClientScript()->registerCssFile('protected/modules/SensorarioModuleComment/assets/SensorarioModuleCommentCss.css');
         }
