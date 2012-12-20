@@ -4,7 +4,6 @@ $(function(){
             url: 'index.php?r=SensorarioModuleComment/comments/number&semanticId=' + semanticId,
             dataType: 'json',
             success: function(json) {
-                console.log(json);
                 $('#number_comment_' + semanticId).html('totale commenti: ' + json.totaleCommenti);
                 $('#comments_comment_' + semanticId).html('');
                 for(commento in json.commenti) {
