@@ -15,7 +15,7 @@ class CommentLoader extends CWidget
     public $semanticId;
 
     /**
-     * 
+     * Load cdn jQuery
      */
     private function loadJQuery()
     {
@@ -25,7 +25,7 @@ class CommentLoader extends CWidget
     }
 
     /**
-     * 
+     * Load CDN ajaxForm
      */
     private function loadAjaxForm()
     {

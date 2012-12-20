@@ -2,12 +2,13 @@
 
 /**
  * @author Simone Gentili <sensorario@gmail.com>
+ * @version 1.0
  */
 class CommentsController extends Controller
 {
 
     /**
-     * 
+     * This method save comments.
      */
     public function actionSaveNew()
     {
@@ -25,6 +26,12 @@ class CommentsController extends Controller
         Yii::app()->end();
     }
 
+    /**
+     * This method get number of comments and all comments to show
+     * in the front-end.
+     * 
+     * @param string $semanticId
+     */
     public function actionNumber($semanticId)
     {
         $totaleCommenti = $contatore = count(SensorarioComments::model()->findAll(array(
@@ -33,14 +40,14 @@ class CommentsController extends Controller
                         ':semanticId' => $semanticId
                     )
                 )));
-        
+
         $arrayCommensForJsonResponse = array();
-        
+
         $criteria = array(
             'condition' => 'semantic_id="' . $semanticId . '"',
             'order' => 'id ASC'
         );
-        
+
         foreach (SensorarioComments::model()->findAll($criteria) as $comment) {
             $arrayCommensForJsonResponse[$contatore]['comment'] = $comment->comment;
             $arrayCommensForJsonResponse[$contatore]['user'] = $comment->user;
