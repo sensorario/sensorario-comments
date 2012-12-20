@@ -37,7 +37,8 @@ When at any point of your website you want to bring up a series of comments, use
 
 Enhancements:
 
- - Improve fields name [fixed #5]
+ - As user I want to delete my comments. [fixed #1]
+ - Improve fields name. [fixed #5]
 
 BugFixes:
 

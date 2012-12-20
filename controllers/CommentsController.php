@@ -8,6 +8,24 @@ class CommentsController extends Controller
 {
 
     /**
+     * This method delete a comment.
+     */
+    public function actionDelete($id)
+    {
+        $model = SensorarioComments::model()->findAll('id=' . $id);
+        
+        foreach ($model as $item) {
+            $item->delete();
+        }
+
+        echo json_encode(array(
+            'success' => true
+        ));
+
+        Yii::app()->end();
+    }
+
+    /**
      * This method save comments.
      */
     public function actionSaveNew()
@@ -56,6 +74,8 @@ class CommentsController extends Controller
             $arrayCommensForJsonResponse[$contatore]['comment'] = $comment->comment;
             $arrayCommensForJsonResponse[$contatore]['user'] = $comment->user;
             $arrayCommensForJsonResponse[$contatore]['datetime'] = $comment->datetime;
+            $arrayCommensForJsonResponse[$contatore]['owner'] = $comment->user == Yii::app()->user->id;
+            $arrayCommensForJsonResponse[$contatore]['id'] = $comment->id;
             $contatore = $contatore - 1;
         }
 

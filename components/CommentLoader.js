@@ -1,5 +1,5 @@
 $(function(){
-    function loadContents(semanticId){
+    function loadContents(semanticId) {
         $.ajax({
             url: 'index.php?r=SensorarioModuleComment/comments/number&semanticId=' + semanticId,
             dataType: 'json',
@@ -10,13 +10,27 @@ $(function(){
                     $('#number_comment_' + semanticId).html('totale commenti: ' + json.totaleCommenti);
                     $('#comments_comment_' + semanticId).html('');
                     for(commento in json.commenti) {
-                        $('#comments_comment_' + semanticId).append(
-                            $('<span>').addClass('SensorarioModuleCommentDateTime').html(json.commenti[commento].datetime)
-                            ).append(
-                            $('<strong>').addClass('SensorarioModuleCommentUser').html(json.commenti[commento].user)
-                            ).append(
-                            $('<span>').addClass('SensorarioModuleCommentComment').html(json.commenti[commento].comment)
-                            ).append('<br>');
+                        $('#comments_comment_' + semanticId)
+                        .append($('<span>').addClass('SensorarioModuleCommentDateTime').html(json.commenti[commento].datetime))
+                        .append($('<strong>').addClass('SensorarioModuleCommentUser').html(json.commenti[commento].user))
+                        .append($('<span>').addClass('SensorarioModuleCommentComment').html(json.commenti[commento].comment))
+                        .append('<br>');
+                        if(json.commenti[commento].owner) {
+                            $('#comments_comment_' + semanticId)
+                            .append($('<div>').html('<a href="javascript:void(0);" delete="index.php?r=SensorarioModuleComment/comments/delete&id='+json.commenti[commento].id+'" class="deleteLink">delete</a>'))
+                            $('.deleteLink').click(function(){
+                                $.ajax({
+                                    url: $(this).attr('delete'),
+                                    dataType: 'json',
+                                    success: function(json) {
+                                        if(json.success) {
+                                            alert('Comment delete successfully!!!');
+                                            loadContents(semanticId);
+                                        }
+                                    }
+                                });
+                            });
+                        }
                     }
                 }
             }
