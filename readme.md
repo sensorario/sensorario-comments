@@ -21,7 +21,7 @@ Second, add module SensorarioModuleComment in your config file.
 
 #Install using github
 
-To add SensorarioModuleComment using github, use this command:
+To add sensorario-module-comment using github, move to protected/modules folder (and create it if not exists), then use this command:
 
 $ git clone git@github.com:sensorario/sensorario-module-comment
 
@@ -42,6 +42,7 @@ Enhancements:
 
 BugFixes:
 
+ - Fix installation. [fixed #8]
  - Fixed name of repository in readme file. [fixed #9]
  - The table "sensorario_comments" for active record class "SensorarioComments" cannot be found in the database. [fixed #6]
 
