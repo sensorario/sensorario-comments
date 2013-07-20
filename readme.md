@@ -22,7 +22,7 @@
         'modules'=>array(
              'sensorariocomments',
              ...
-	),
+        ),
         ....
     );
 
