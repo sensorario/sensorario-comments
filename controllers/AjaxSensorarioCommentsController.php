@@ -73,15 +73,20 @@ class AjaxSensorarioCommentsController extends Controller
 
     public function actionLatest() {
 
+        $request = Yii::app()->request;
+
+        $thread = $request->getPost('thread');
+
         $comments = SensorarioCommentsModel::model()
+                ->thread($thread)
                 ->recenti()
                 ->findAll();
 
         $html = '';
         foreach ($comments as $comment) {
             $html = $this->renderPartial('_item', array(
-                'comment' => $comment
-                    ), true) . $html;
+                        'comment' => $comment
+                            ), true) . $html;
         }
 
         echo json_encode(array(
