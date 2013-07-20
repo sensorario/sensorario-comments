@@ -34,6 +34,13 @@
 
 ## Tricks
 
+### More comments in the same page
+
+    <?php $this->widget('SensorarioCommentsWidget', ['thread'=>'1234567890']); ?>
+    <?php $this->widget('SensorarioCommentsWidget', ['thread'=>'765785']); ?>
+
+### Easiest usage
+
 For an easiest way to use this widget add this stuff to import in config file
 
     return array(
