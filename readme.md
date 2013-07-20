@@ -28,9 +28,9 @@
 
 ## Usage
 
-<?php $this->widget('application.modules.sensorariocomments.extensions.widgets.SensorarioCommentsWidget', [
-    'thread'=>'1234567890']
-); ?>
+    <?php $this->widget('application.modules.sensorariocomments.extensions.widgets.SensorarioCommentsWidget', [
+        'thread'=>'1234567890']
+    ); ?>
 
 ## Tricks
 
@@ -47,4 +47,4 @@ For an easiest way to use this widget add this stuff to import in config file
 
 and after that, you could load widget in this way:
 
-<?php $this->widget('SensorarioCommentsWidget', ['thread'=>'1234567890']); ?>
+    <?php $this->widget('SensorarioCommentsWidget', ['thread'=>'1234567890']); ?>
