@@ -1,4 +1,4 @@
-# Install
+# Index
 
  - Database schema
  - Config file
