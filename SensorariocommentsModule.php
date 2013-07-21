@@ -1,12 +1,20 @@
 <?php
 
 /**
- * @package Sensorario\Modules\SensorarioComments
+ * Ajax module for comments in Yii 1.1
+ * 
+ * @package Sensorario\Modules\SensorarioComments;
+ * 
+ * @author Simone Gentili <sensorario@gmail.com>
  */
 class SensorariocommentsModule extends CWebModule
 {
 
-    public function init() {
+    /**
+     * init
+     */
+    public function init()
+    {
 
         $this->setImport(array(
             'sensorariocomments.models.*',
@@ -15,7 +23,16 @@ class SensorariocommentsModule extends CWebModule
 
     }
 
-    public function beforeControllerAction($controller, $action) {
+    /**
+     * beforeControllerAction
+     * 
+     * @param type $controller A controller
+     * @param type $action     An action
+     * 
+     * @return boolean
+     */
+    public function beforeControllerAction($controller, $action)
+    {
 
         if (parent::beforeControllerAction($controller, $action)) {
             return true;

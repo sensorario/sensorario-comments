@@ -1,12 +1,20 @@
 <?php
 
 /**
+ * This controller collect all ajax requests
+ * 
  * @package Sensorario\Modules\SensorarioComments\Controllers
  */
 class AjaxSensorarioCommentsController extends Controller
 {
 
-    public function filters() {
+    /**
+     * Filter method.
+     * 
+     * @return array
+     */
+    public function filters()
+    {
 
         return array(
             'postOnly + stats, index'
@@ -14,7 +22,11 @@ class AjaxSensorarioCommentsController extends Controller
 
     }
 
-    public function actionStats() {
+    /**
+     * Stats action.
+     */
+    public function actionStats()
+    {
 
         $request = Yii::app()->request;
 
@@ -38,7 +50,11 @@ class AjaxSensorarioCommentsController extends Controller
 
     }
 
-    public function actionSave() {
+    /**
+     * Save action.
+     */
+    public function actionSave()
+    {
 
         $request = Yii::app()->request;
 
@@ -71,7 +87,11 @@ class AjaxSensorarioCommentsController extends Controller
 
     }
 
-    public function actionLatest() {
+    /**
+     * Latest action.
+     */
+    public function actionLatest()
+    {
 
         $request = Yii::app()->request;
 

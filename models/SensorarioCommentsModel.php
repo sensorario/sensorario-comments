@@ -2,14 +2,16 @@
 
 /**
  * This is the model class for table "sensorario_comments".
- *
- * @package Sensorario\Modules\SensorarioComments\Models
  * 
  * The followings are the available columns in table 'sensorario_comments':
+ *
+ * @package Sensorario\Modules\SensorarioComments\Models;
+ * 
  * @property integer $id
  * @property string $thread
  * @property string $comment
  * @property string $user
+ * 
  */
 class SensorarioCommentsModel extends CActiveRecord
 {
@@ -17,7 +19,8 @@ class SensorarioCommentsModel extends CActiveRecord
     /**
      * @return string the associated database table name
      */
-    public function tableName() {
+    public function tableName()
+    {
 
         return 'sensorario_comments';
 
@@ -26,7 +29,8 @@ class SensorarioCommentsModel extends CActiveRecord
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules() {
+    public function rules()
+    {
 
         return array(
             array('thread, user, comment', 'required'),
@@ -40,7 +44,8 @@ class SensorarioCommentsModel extends CActiveRecord
     /**
      * @return array relational rules.
      */
-    public function relations() {
+    public function relations()
+    {
 
         return array(
         );
@@ -50,7 +55,8 @@ class SensorarioCommentsModel extends CActiveRecord
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
 
         return array(
             'id' => 'ID',
@@ -73,7 +79,8 @@ class SensorarioCommentsModel extends CActiveRecord
      * @return CActiveDataProvider the data provider that can return the models
      * based on the search/filter conditions.
      */
-    public function search() {
+    public function search()
+    {
 
         // @todo Please modify the following code to remove attributes that should not be searched.
 
@@ -92,17 +99,29 @@ class SensorarioCommentsModel extends CActiveRecord
 
     /**
      * Returns the static model of the specified AR class.
+     * 
      * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * 
      * @param string $className active record class name.
+     * 
      * @return SensorarioCommentsModel the static model class
      */
-    public static function model($className = __CLASS__) {
+    public static function model($className = __CLASS__)
+    {
 
         return parent::model($className);
 
     }
 
-    public function thread($thread) {
+    /**
+     * This scope provide all comments of a thread.
+     * 
+     * @param type $thread
+     * 
+     * @return \SensorarioCommentsModel
+     */
+    public function thread($thread)
+    {
 
         $this->getDbCriteria()->mergeWith(array(
             'condition' => 'thread=:thread',
@@ -115,7 +134,13 @@ class SensorarioCommentsModel extends CActiveRecord
 
     }
 
-    public function recenti() {
+    /**
+     * This scope provide al recent comments
+     * 
+     * @return \SensorarioCommentsModel
+     */
+    public function recenti()
+    {
 
         $this->getDbCriteria()->mergeWith(array(
             'order' => 'id desc',
