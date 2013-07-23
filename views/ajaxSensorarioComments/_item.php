@@ -3,14 +3,14 @@
      id="sensorario-comment-id-<?php echo $comment->id; ?>">
     <div class="sensorario-comments-author">#<?php echo $comment->id; ?> - <?php echo $comment->user; ?></div>
     <div class="sensorario-comments-comment"><?php echo $comment->comment; ?></div>
-    <?php if ($comment->user === Yii::app()->user->name) : ?>
+    <?php if ($isOwner) : ?>
         <a href="javascript:void(0);" id="sensorario-comments-delete-<?php echo $comment->id; ?>">delete</a>
     <?php endif; ?>
 </div>
 <script>
     $('#sensorario-comment-id-<?php echo $comment->id; ?>').slideDown();
 </script>
-<?php if ($comment->user === Yii::app()->user->name) : ?>
+<?php if ($isOwner) : ?>
     <?php $deleteLink = '/sensorariocomments/ajaxSensorarioComments/delete'; ?>
     <?php $urlDelete = Yii::app()->createUrl($deleteLink, array('thread' => $comment->thread)); ?>
     <script>

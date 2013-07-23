@@ -20,11 +20,15 @@ class LatestAction extends CAction
                 ->recenti()
                 ->findAll();
 
+        $controller = $this->getController();
+
         $html = '';
         foreach ($comments as $comment) {
-            $html = $this->getController()->renderPartial('_item', array(
-                        'comment' => $comment
-                            ), true) . $html;
+            $params = array(
+                'comment' => $comment,
+                'isOwner' => Yii::app()->user->name === $comment->user,
+            );
+            $html = $controller->renderPartial('_item', $params, true) . $html;
         }
 
         echo json_encode(array(
