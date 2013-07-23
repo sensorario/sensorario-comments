@@ -17,37 +17,20 @@ class AjaxSensorarioCommentsController extends Controller
     {
 
         return array(
-            'postOnly + stats, index'
+            'postOnly + stats, index, save, delete'
         );
 
     }
 
     /**
-     * Stats action.
+     * Actions methos.
      */
-    public function actionStats()
+    public function actions()
     {
-
-        $request = Yii::app()->request;
-
-        $thread = $request->getPost('thread');
-
-        $comments = SensorarioCommentsModel::model()
-                ->thread($thread)
-                ->findAll();
-
-        $totThreadComments = count($comments);
-
-        echo json_encode(array(
-            'request' => $request,
-            'success' => true,
-            'message' => 'Impossibile recuperare le statistiche.',
-            'error' => null,
-            'tot_thread_comments' => $totThreadComments,
-        ));
-
-        Yii::app()->end();
-
+        return array(
+            'stats' => 'sensorariocomments.actions.StatsAction',
+            'delete' => 'sensorariocomments.actions.DeleteAction',
+        );
     }
 
     /**
@@ -114,31 +97,6 @@ class AjaxSensorarioCommentsController extends Controller
             'get' => $_GET,
             'success' => false,
             'html' => $html
-        ));
-
-        Yii::app()->end();
-
-    }
-
-    /**
-     * Delete action
-     */
-    public function actionDelete()
-    {
-
-        $request = Yii::app()->request;
-
-        $id = $request->getPost('id');
-
-        $success = SensorarioCommentsModel::model()
-                ->findByPk($id)
-                ->delete();
-
-        echo json_encode(array(
-            'post' => $_POST,
-            'get' => $_GET,
-            'success' => $success,
-            'message' => 'commento non cancellato'
         ));
 
         Yii::app()->end();
