@@ -3,7 +3,7 @@
      id="sensorario-comment-id-<?php echo $comment->id; ?>">
     <div class="sensorario-comments-author">#<?php echo $comment->id; ?> - <?php echo $comment->user; ?></div>
     <div class="sensorario-comments-comment"><?php echo $comment->comment; ?></div>
-    <a href="javascript:void(0);" id="sensorario-comments-delete-<?php echo $comment->id; ?>">cancella</a>
+    <a href="javascript:void(0);" id="sensorario-comments-delete-<?php echo $comment->id; ?>">delete</a>
 </div>
 <?php
 $ajaxLinkController = '/sensorariocomments/ajaxSensorarioComments/';

@@ -24,7 +24,7 @@ class DeleteAction extends CAction
             'post' => $_POST,
             'get' => $_GET,
             'success' => $success,
-            'message' => 'commento non cancellato'
+            'message' => 'Comment was not deleted.'
         ));
 
         Yii::app()->end();
