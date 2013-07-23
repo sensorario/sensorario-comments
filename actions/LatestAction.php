@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * This action show latest actions.
+ */
 class LatestAction extends CAction
 {
 

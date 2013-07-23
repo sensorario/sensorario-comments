@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * This action save new comment.
+ */
 class SaveAction extends CAction
 {
 

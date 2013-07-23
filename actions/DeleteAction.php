@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * This action delete a comment.
+ */
 class DeleteAction extends CAction
 {
 

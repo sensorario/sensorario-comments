@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * This action show statistics of a single thread.
+ */
 class StatsAction extends CAction
 {
 
