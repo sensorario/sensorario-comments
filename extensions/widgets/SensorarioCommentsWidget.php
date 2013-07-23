@@ -23,16 +23,19 @@ class SensorarioCommentsWidget extends CWidget
 
         Yii::app()->getClientScript()->registerCoreScript('jquery');
 
-        $file = __DIR__ . '/sensorario-comments.js';
-        $javascript = Yii::app()->getAssetManager()->publish($file);
         $ajaxLinkController = '/sensorariocomments/ajaxSensorarioComments/';
-
-        Yii::app()->getClientScript()->registerScriptFile($javascript);
 
         $varPath = 'var url_path = "' . Yii::app()->createUrl($ajaxLinkController . 'save', array('thread' => $this->thread)) . '";' . "\n";
         $urlStats = 'var url_stats = "' . Yii::app()->createUrl($ajaxLinkController . 'stats', array('thread' => $this->thread)) . '";' . "\n";
         $urlLatest = 'var url_latests = "' . Yii::app()->createUrl($ajaxLinkController . 'latest', array('thread' => $this->thread)) . '";' . "\n";
+        
         Yii::app()->getClientScript()->registerScript('url_path', "\n{$varPath} {$urlStats} {$urlLatest}", CClientScript::POS_HEAD);
+
+        $fileComments = __DIR__ . '/sensorario-comments.js';
+        Yii::app()->getClientScript()->registerScript('sensorario-comments', file_get_contents($fileComments), CClientScript::POS_HEAD);
+        
+        $fileFunctions = __DIR__ . '/sensorario-comments-functions.js';
+        Yii::app()->getClientScript()->registerScript('sensorario-comments-functions', file_get_contents($fileFunctions), CClientScript::POS_HEAD);
 
     }
 
