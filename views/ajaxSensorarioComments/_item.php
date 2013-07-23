@@ -9,11 +9,11 @@
 </div>
 <script>
     $('#sensorario-comment-id-<?php echo $comment->id; ?>').slideDown();
+</script>
 <?php if ($comment->user === Yii::app()->user->name) : ?>
-    <?php
-    $ajaxLinkController = '/sensorariocomments/ajaxSensorarioComments/';
-    $urlDelete = Yii::app()->createUrl($ajaxLinkController . 'delete', array('thread' => $comment->thread))
-    ?>
+    <?php $deleteLink = '/sensorariocomments/ajaxSensorarioComments/delete'; ?>
+    <?php $urlDelete = Yii::app()->createUrl($deleteLink, array('thread' => $comment->thread)); ?>
+    <script>
         $('#sensorario-comments-delete-<?php echo $comment->id; ?>').on('click', function() {
             $.post('<?php echo $urlDelete; ?>', {
                 id: <?php echo $comment->id; ?>
@@ -24,10 +24,9 @@
                     $('#sensorario-comment-id-<?php echo $comment->id; ?>').slideUp('slow', function() {
                         $(this).remove();
                     });
-
                     mostraNumeroCommenti('<?php echo $comment->thread; ?>');
                 }
             }, 'json');
         });
+    </script>
 <?php endif; ?>
-</script>
