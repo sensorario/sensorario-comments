@@ -30,76 +30,9 @@ class AjaxSensorarioCommentsController extends Controller
         return array(
             'stats' => 'sensorariocomments.actions.StatsAction',
             'delete' => 'sensorariocomments.actions.DeleteAction',
+            'save' => 'sensorariocomments.actions.SaveAction',
+            'latest' => 'sensorariocomments.actions.LatestAction',
         );
-    }
-
-    /**
-     * Save action.
-     */
-    public function actionSave()
-    {
-
-        $request = Yii::app()->request;
-
-        $sensorarioCommento = new SensorarioCommentsModel();
-        $sensorarioCommento->thread = $request->getPost('thread');
-        $sensorarioCommento->comment = $request->getPost('commento');
-        $sensorarioCommento->user = Yii::app()->user->name;
-
-        $message = '';
-        $success = $sensorarioCommento->save();
-        if ($success) {
-            $message = 'Messaggio salvato con successo.';
-        } else {
-            foreach ($sensorarioCommento->errors as $errore) {
-                $message .= "\n" . $errore[0];
-            }
-        }
-
-        echo json_encode(array(
-            'post' => $_POST,
-            'get' => $_GET,
-            'success' => $success,
-            'message' => $message,
-            'error' => null,
-            'html' => $this->renderPartial('_item', array(
-                'comment' => $sensorarioCommento), true),
-        ));
-
-        Yii::app()->end();
-
-    }
-
-    /**
-     * Latest action.
-     */
-    public function actionLatest()
-    {
-
-        $request = Yii::app()->request;
-
-        $thread = $request->getPost('thread');
-
-        $comments = SensorarioCommentsModel::model()
-                ->thread($thread)
-                ->recenti()
-                ->findAll();
-
-        $html = '';
-        foreach ($comments as $comment) {
-            $html = $this->renderPartial('_item', array(
-                        'comment' => $comment
-                            ), true) . $html;
-        }
-
-        echo json_encode(array(
-            'post' => $_POST,
-            'get' => $_GET,
-            'success' => false,
-            'html' => $html
-        ));
-
-        Yii::app()->end();
 
     }
 
