@@ -4,6 +4,7 @@
  - Config file
  - Usage
  - Tricks
+ - Install from github
 
 ## Database schema
 
@@ -55,3 +56,8 @@ For an easiest way to use this widget add this stuff to import in config file
 and after that, you could load widget in this way:
 
     <?php $this->widget('SensorarioCommentsWidget', ['thread'=>'1234567890']); ?>
+
+## Install from github
+
+    $ cd protected/extensions/
+    $ git clone git@github.com:sensorario/sensorariocomments.git
