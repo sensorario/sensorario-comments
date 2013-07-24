@@ -16,11 +16,18 @@
     <script>
         $('#sensorario-comments-delete-<?php echo $comment->id; ?>').on('click', function() {
             $.post('<?php echo $urlDelete; ?>', {
-                id: <?php echo $comment->id; ?>
+                id: <?php echo $comment->id; ?>,
+                thread: '<?php echo $comment->thread; ?>'
             }, function(json) {
                 if (json.success.toString() === 'false') {
                     alert(json.message);
+                    if(json.errorCode.toString() === '2') {
+                        $('#sensorario-comment-id-<?php echo $comment->id; ?>').slideUp('slow', function() {
+                            $(this).remove();
+                        });
+                    }
                 } else {
+                    $('#sensorario-comments-comments-<?php echo $comment->thread; ?>').prepend(json.recente);
                     $('#sensorario-comment-id-<?php echo $comment->id; ?>').slideUp('slow', function() {
                         $(this).remove();
                     });
