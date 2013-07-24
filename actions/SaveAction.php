@@ -36,6 +36,7 @@ class SaveAction extends CAction
             'message' => $message,
             'error' => null,
             'html' => $this->getController()->renderPartial('_item', array(
+                'isOwner' => Yii::app()->user->name === $sensorarioCommento->user,
                 'comment' => $sensorarioCommento), true),
         ));
 
