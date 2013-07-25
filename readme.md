@@ -1,9 +1,9 @@
 # Index
 
- - Database schema
- - Config file
- - Usage
- - Tricks
+ - [Database schema](https://github.com/sensorario/sensorariocomments#database-schema)
+ - [Config file](https://github.com/sensorario/sensorariocomments#config-file)
+ - [Usage](https://github.com/sensorario/sensorariocomments#usage)
+ - [Tricks](https://github.com/sensorario/sensorariocomments#tricks)
  - [Install from github](https://github.com/sensorario/sensorariocomments#install-from-github)
 
 ## Database schema
