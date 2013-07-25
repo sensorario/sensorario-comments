@@ -14,6 +14,8 @@ class SensorarioCommentsWidget extends CWidget
      * @var string
      */
     public $thread;
+    
+    public $assetImage;
 
     /**
      * Init method.
@@ -36,6 +38,9 @@ class SensorarioCommentsWidget extends CWidget
         
         $fileFunctions = __DIR__ . '/sensorario-comments-functions.js';
         Yii::app()->getClientScript()->registerScript('sensorario-comments-functions', file_get_contents($fileFunctions), CClientScript::POS_HEAD);
+        
+        $image = __DIR__ . '/images/ajax-loader.gif';
+        $this->assetImage = Yii::app()->getAssetManager()->publish($image);
 
     }
 

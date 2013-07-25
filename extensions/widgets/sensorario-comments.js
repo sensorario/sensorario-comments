@@ -5,6 +5,9 @@ $(function() {
         var thread = _thread.substr(27, _thread.length);
         mostraNumeroCommenti(thread);
         $.post(url_latests, {thread: thread}, function(json) {
+            $('#sensorario-comment-ajax-loader').slideUp(function(){
+                $(this).remove();
+            });
             $('#sensorario-comments-comments-' + thread).append(json.html);
         }, 'json');
         $('#sensorario-comments-textarea-' + thread).on('keypress', function(event) {
