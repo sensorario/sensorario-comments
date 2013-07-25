@@ -31,8 +31,8 @@
                     $('#sensorario-comment-id-<?php echo $comment->id; ?>').slideUp('slow', function() {
                         $(this).remove();
                     });
-                    mostraNumeroCommenti('<?php echo $comment->thread; ?>');
                 }
+                mostraNumeroCommenti('<?php echo $comment->thread; ?>');
             }, 'json');
         });
     </script>
