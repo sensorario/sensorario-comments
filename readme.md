@@ -4,7 +4,7 @@
  - Config file
  - Usage
  - Tricks
- - Install from github
+ - [Install from github](https://github.com/sensorario/sensorariocomments#install-from-github)
 
 ## Database schema
 
