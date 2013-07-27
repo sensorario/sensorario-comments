@@ -32,6 +32,7 @@ class AjaxSensorarioCommentsController extends Controller
             'delete' => 'sensorariocomments.actions.DeleteAction',
             'save' => 'sensorariocomments.actions.SaveAction',
             'latest' => 'sensorariocomments.actions.LatestAction',
+            'update' => 'sensorariocomments.actions.UpdateAction',
         );
 
     }
