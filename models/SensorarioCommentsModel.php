@@ -3,9 +3,27 @@
 /**
  * This is the model class for table "sensorario_comments".
  * 
- * The followings are the available columns in table 'sensorario_comments':
+ * PHP version 5
  *
- * @package Sensorario\Modules\SensorarioComments\Models;
+ * @category Model
+ * @package  Sensorario\Modules\SensorarioComments\Models
+ * @author   Simone Gentili <sensorario@gmail.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  GIT: 2.1
+ * @link     https://github.com/sensorario/sensorariocomments github repository
+ * 
+ */
+
+
+/**
+ * This is the model class for table "sensorario_comments".
+ * 
+ * @category Model
+ * @package  Sensorario\Modules\SensorarioComments\Models
+ * @author   Simone Gentili <sensorario@gmail.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 1.0
+ * @link     https://github.com/sensorario/sensorariocomments github repository
  * 
  * @property integer $id
  * @property string $thread
@@ -17,6 +35,8 @@ class SensorarioCommentsModel extends CActiveRecord
 {
 
     /**
+     * Table name.
+     * 
      * @return string the associated database table name
      */
     public function tableName()
@@ -27,21 +47,25 @@ class SensorarioCommentsModel extends CActiveRecord
     }
 
     /**
+     * List of rules.
+     * 
      * @return array validation rules for model attributes.
      */
     public function rules()
     {
 
         return array(
-            array('thread, user, comment', 'required'),
-            array('thread', 'length', 'max' => 50),
-            array('comment, user', 'safe'),
-            array('id, thread, comment, user', 'safe', 'on' => 'search'),
+          array('thread, user, comment', 'required'),
+          array('thread', 'length', 'max' => 50),
+          array('comment, user', 'safe'),
+          array('id, thread, comment, user', 'safe', 'on' => 'search'),
         );
 
     }
 
     /**
+     * List of relations.
+     * 
      * @return array relational rules.
      */
     public function relations()
@@ -53,16 +77,18 @@ class SensorarioCommentsModel extends CActiveRecord
     }
 
     /**
+     * Attribute label list.
+     * 
      * @return array customized attribute labels (name=>label)
      */
     public function attributeLabels()
     {
 
         return array(
-            'id' => 'ID',
-            'thread' => 'Thread',
-            'comment' => 'Comment',
-            'user' => 'User',
+          'id' => 'ID',
+          'thread' => 'Thread',
+          'comment' => 'Comment',
+          'user' => 'User',
         );
 
     }
@@ -82,8 +108,6 @@ class SensorarioCommentsModel extends CActiveRecord
     public function search()
     {
 
-        // @todo Please modify the following code to remove attributes that should not be searched.
-
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
@@ -91,16 +115,19 @@ class SensorarioCommentsModel extends CActiveRecord
         $criteria->compare('comment', $this->comment, true);
         $criteria->compare('user', $this->user);
 
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-        ));
+        $arrayCriteria = array(
+          'criteria' => $criteria,
+        );
+
+        return new CActiveDataProvider($this, $arrayCriteria);
 
     }
 
     /**
      * Returns the static model of the specified AR class.
      * 
-     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * Please note that you should have this exact method in all your
+     * CActiveRecord descendants!
      * 
      * @param string $className active record class name.
      * 
@@ -116,19 +143,21 @@ class SensorarioCommentsModel extends CActiveRecord
     /**
      * This scope provide all comments of a thread.
      * 
-     * @param type $thread
+     * @param string $thread A string ID for a thread of comments
      * 
      * @return \SensorarioCommentsModel
      */
     public function thread($thread)
     {
 
-        $this->getDbCriteria()->mergeWith(array(
-            'condition' => 'thread=:thread',
-            'params' => array(
-                ':thread' => $thread
-            )
-        ));
+        $criteria = array(
+          'condition' => 'thread=:thread',
+          'params' => array(
+            ':thread' => $thread
+          )
+        );
+
+        $this->getDbCriteria()->mergeWith($criteria);
 
         return $this;
 
@@ -142,10 +171,12 @@ class SensorarioCommentsModel extends CActiveRecord
     public function recenti()
     {
 
-        $this->getDbCriteria()->mergeWith(array(
-            'order' => 'id desc',
-            'limit' => 3
-        ));
+        $criteria = array(
+          'order' => 'id desc',
+          'limit' => 3
+        );
+
+        $this->getDbCriteria()->mergeWith();
 
         return $this;
 

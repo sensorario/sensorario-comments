@@ -21,7 +21,7 @@
  * @package  Sensorario\Modules\SensorarioComments\Controllers
  * @author   Simone Gentili <sensorario@gmail.com>
  * @license  http://opensource.org/licenses/MIT MIT
- * @version  Release: 2.1
+ * @version  Release: 1.0
  * @link     https://github.com/sensorario/sensorariocomments github repository
  */
 class AjaxSensorarioCommentsController extends Controller
