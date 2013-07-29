@@ -39,7 +39,7 @@ class SensorariocommentsModule extends CWebModule
         );
 
         $this->setImport($imports);
-        
+
         return true;
 
     }
