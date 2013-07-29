@@ -1,0 +1,15 @@
+{
+    "name": "sensorario/sensorario-comments",
+    "description": "Ajax comments for yii",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sensorario",
+            "email": "sensorario@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    }
+}
