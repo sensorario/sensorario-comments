@@ -176,7 +176,7 @@ class SensorarioCommentsModel extends CActiveRecord
           'limit' => 3
         );
 
-        $this->getDbCriteria()->mergeWith();
+        $this->getDbCriteria()->mergeWith($criteria);
 
         return $this;
 
