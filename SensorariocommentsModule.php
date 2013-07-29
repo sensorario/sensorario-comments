@@ -1,25 +1,46 @@
 <?php
 
 /**
+ * A Yii module that provide comments Facebook like.
+ * 
+ * PHP version 5
+ * 
+ * @category Module
+ * @package  Sensorario\Modules\SensorarioComments;
+ * @author   Simone Gentili <sensorario@gmail.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/sensorario/sensorariocomments github repository
+ */
+
+
+/**
  * Ajax module for comments in Yii 1.1
  * 
- * @package Sensorario\Modules\SensorarioComments;
- * 
- * @author Simone Gentili <sensorario@gmail.com>
+ * @category Module
+ * @package  Sensorario\Modules\SensorarioComments;
+ * @author   Simone Gentili <sensorario@gmail.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/sensorario/sensorariocomments github repository
  */
 class SensorariocommentsModule extends CWebModule
 {
 
     /**
      * init
+     * 
+     * @return booelan true
      */
     public function init()
     {
 
-        $this->setImport(array(
-            'sensorariocomments.models.*',
-            'sensorariocomments.components.*',
-        ));
+        $imports = array(
+          'sensorariocomments.models.*',
+          'sensorariocomments.components.*',
+        );
+
+        $this->setImport($imports);
+        
+        return true;
 
     }
 
