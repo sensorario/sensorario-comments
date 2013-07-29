@@ -3,3 +3,9 @@ function mostraNumeroCommenti(thread) {
         $('#sensorario-comments-stats-' + thread).html(json.tot_thread_comments + ' comments.');
     }, 'json');
 }
+
+function removeGifLoader() {
+    $('#sensorario-comment-ajax-loader').slideUp(function() {
+        $(this).remove();
+    });
+}
