@@ -2,7 +2,7 @@
      style="display: none;"
      id="sensorario-comment-id-<?php echo $comment->id; ?>">
     <div class="sensorario-comments-author">#<?php echo $comment->id; ?> - <?php echo $comment->user; ?></div>
-    <div class="sensorario-comments-comment"><?php echo $comment->comment; ?></div>
+    <div class="sensorario-comments-comment"><?php echo $comment->getEscapedComment(); ?></div>
     <div class="sensorario-comments-actions">
       <?php if ($isOwner) : ?>
           <a href="javascript:void(0);" style="display: none;" id="sensorario-comments-save-<?php echo $comment->id; ?>">save</a>

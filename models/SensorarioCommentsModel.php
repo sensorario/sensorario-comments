@@ -182,4 +182,16 @@ class SensorarioCommentsModel extends CActiveRecord
 
     }
 
+    /**
+     * Escape the content of comment
+     * 
+     * @return string escaped comment
+     */
+    public function getEscapedComment()
+    {
+
+        return htmlentities($this->comment);
+
+    }
+
 }
