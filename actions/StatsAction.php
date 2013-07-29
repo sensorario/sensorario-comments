@@ -47,10 +47,14 @@ class StatsAction extends CAction
 
         $totThreadComments = count($comments);
 
+        $messageToTranslate = 'Statistics unavailable.';
+        $category = 'SensorariocommentsModule.app';
+        $message = Yii::t($category, $messageToTranslate);
+
         $json = array(
           'request' => $request,
           'success' => true,
-          'message' => 'Impossibile recuperare le statistiche.',
+          'message' => $message,
           'error' => null,
           'tot_thread_comments' => $totThreadComments,
         );

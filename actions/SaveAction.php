@@ -46,8 +46,12 @@ class SaveAction extends CAction
 
         $message = '';
         $success = $sensorarioCommento->save();
+
+
         if ($success) {
-            $message = 'Messaggio salvato con successo.';
+            $category = 'SensorariocommentsModule.app';
+            $messageToTranslate = 'Message successful saved.';
+            $message = Yii::t($category, $messageToTranslate);
         } else {
             foreach ($sensorarioCommento->errors as $errore) {
                 $message .= "\n" . $errore[0];

@@ -11,7 +11,7 @@
         <script>
             removeGifLoader();
         </script>
-        <em>To leave a comment, you must be logged in.</em>
+        <em><?php echo Yii::t('SensorariocommentsModule.app', 'To leave a comment, you must be logged in.');?></em>
     <?php endif;?>
 </div>
 

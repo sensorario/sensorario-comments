@@ -49,7 +49,9 @@ class UpdateAction extends CAction
         $message = '';
         $success = $commento->save();
         if ($success) {
-            $message = 'Messaggio aggiornato con successo.';
+            $category = 'SensorariocommentsModule.app';
+            $messageToTranslate = 'Message successful updated.';
+            $message = Yii::t($category, $messageToTranslate);
         } else {
             foreach ($commento->errors as $errore) {
                 $message .= "\n" . $errore[0];

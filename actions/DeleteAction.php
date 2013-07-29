@@ -45,7 +45,9 @@ class DeleteAction extends CAction
           ->findByPk($id)
           ->delete();
 
-        $message = 'Comment was not deleted.';
+        $category = 'SensorariocommentsModule.app';
+        $messageToTranslate = 'Comment was not deleted.';
+        $message = Yii::t($category, $messageToTranslate);
 
         $thread = $request->getPost('thread');
 
@@ -68,9 +70,13 @@ class DeleteAction extends CAction
             $controller = $this->getController();
             $recente = $controller->renderPartial('_item', $params, true);
         } else {
+
+            $category = 'SensorariocommentsModule.app';
+            $messageToTranslate = 'There are no old messages to show.';
+            $message = Yii::t($category, $messageToTranslate);
+
             $errorCode = 2;
             $success = false;
-            $message = 'There are no old messages to show.';
             $comment = null;
             $recente = null;
             $isOwner = false;
