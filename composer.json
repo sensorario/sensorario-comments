@@ -1,0 +1,18 @@
+{
+    "name": "sensorario/sensorariocomments",
+    "description": "Ajax comments for Yii1.1",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "1.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sensorario",
+            "email": "sensorario@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    }
+}
