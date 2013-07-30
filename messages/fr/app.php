@@ -14,15 +14,15 @@
  */
 return array(
   'To leave a comment, you must be logged in.'
-  => 'Anmelden.',
+  => 'Pour laisser un commentaire, vous devez être connecté.',
   'Message successful updated.'
-  => 'Nachricht erfolgreich aktualisiert.',
+  => 'Message mis à jour avec succès.',
   'Statistics unavailable.'
-  => 'Statistik nicht verfügbar.',
+  => 'Statistiques indisponibles.',
   'Message successful saved.'
-  => 'Nachricht erfolgreich gespeichert.',
+  => 'Message enregistré avec succès.',
   'There are no old messages to show.'
-  => 'Es gibt keine alten Nachrichten.',
+  => 'Il n\'y a pas d\'anciens messages à montrer.',
   'Comment was not deleted.'
-  => 'Kommentar wurde nicht gelöscht.',
+  => 'Commentaire n\'a pas été supprimé.',
 );
