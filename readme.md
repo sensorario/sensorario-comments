@@ -5,7 +5,7 @@
  - [Usage](https://github.com/sensorario/sensorariocomments#usage)
  - [Tricks](https://github.com/sensorario/sensorariocomments#tricks)
  - [Install from github](https://github.com/sensorario/sensorariocomments#install-from-github)
- - [How to contribute](https://github.com/sensorario/sensorariocomments/tree/master/doc/collaborate.rst)
+ - [How to contribute](https://github.com/sensorario/sensorariocomments/tree/master/doc/collaborate.md)
 
 ## Database schema
 
