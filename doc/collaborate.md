@@ -1,3 +1,5 @@
+[torna all'indice](https://github.com/sensorario/sensorario-comments/blob/master/readme.md)
+
 # How to contribute for sensorario-comments
 
 Hi all, for this project I've added squizlabs/php_codesniffer project to composer, becose I like to work with standard code syntax. So, when you download sensorario-comments, please run

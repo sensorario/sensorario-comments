@@ -1,3 +1,5 @@
+[torna all'indice](https://github.com/sensorario/sensorario-comments/blob/master/readme.md)
+
 ## Database schema
 
     CREATE TABLE `sensorario_comments` (
