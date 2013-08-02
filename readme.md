@@ -5,4 +5,4 @@
  - [Install from github](https://github.com/sensorario/sensorariocomments/tree/master/doc/github.md)
  - [Usage](https://github.com/sensorario/sensorariocomments/tree/master/doc/usage.md)
  - [Config file](https://github.com/sensorario/sensorariocomments/tree/master/doc/config.md)
- - [Config file](https://github.com/sensorario/sensorariocomments/tree/master/doc/database.md)
+ - [Database schema](https://github.com/sensorario/sensorariocomments/tree/master/doc/database.md)
