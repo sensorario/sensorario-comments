@@ -21,6 +21,6 @@ Starting from version **2.3** this is new schema that allow users to see date an
         `thread` varchar(50) NOT NULL,
         `comment` text,
         `user` varchar(11) NOT NULL,
-        `datetime` datetime(14) NOT NULL,
+        `datetime` datetime NOT NULL,
         PRIMARY KEY (`id`)
     );
