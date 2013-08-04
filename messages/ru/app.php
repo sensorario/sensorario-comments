@@ -14,7 +14,8 @@
  */
 return array(
   'To leave a comment, you must be logged in.'
-  => 'Чтобы оставить комментарий, вы должны быть вошли в систему.',
+  => 'Чтобы оставить комментарий, '
+  . 'вы должны быть вошли в систему.',
   'Message successful updated.'
   => 'Сообщение успешной обновлен.',
   'Statistics unavailable.'
@@ -22,7 +23,8 @@ return array(
   'Message successful saved.'
   => 'Сообщение успешной спасен.',
   'There are no old messages to show.'
-  => 'Там ​​нет старые сообщения, чтобы показать.',
+  => 'Там ​​нет старые сообщения, '
+  . 'чтобы показать.',
   'Comment was not deleted.'
   => 'Il Commento Non è стата cancellato.',
 );

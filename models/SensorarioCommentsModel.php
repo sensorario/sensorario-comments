@@ -198,7 +198,11 @@ class SensorarioCommentsModel extends CActiveRecord
     }
 
     /**
+     * The purpose of this method is to show date time.
+     * 
      * @since 2.3
+     * @return string The date and the time of comment.
+     * 
      */
     public function getDate()
     {
