@@ -57,4 +57,3 @@
         });
     </script>
 <?php endif;?>
-<?php unset($comment);?>
