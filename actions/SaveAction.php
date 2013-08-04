@@ -9,7 +9,7 @@
  * @package  Sensorario\Modules\SensorarioComments\Actions
  * @author   Simone Gentili <sensorario@gmail.com>
  * @license  http://opensource.org/licenses/MIT MIT
- * @version  GIT: 2.1
+ * @version  GIT: 2.3
  * @link     https://github.com/sensorario/sensorariocomments github repository
  * 
  */
@@ -22,7 +22,7 @@
  * @package  Sensorario\Modules\SensorarioComments\Actions
  * @author   Simone Gentili <sensorario@gmail.com>
  * @license  http://opensource.org/licenses/MIT MIT
- * @version  Release: 2.1
+ * @version  Release: 2.3
  * @link     https://github.com/sensorario/sensorariocomments github repository
  * 
  */
@@ -43,6 +43,7 @@ class SaveAction extends CAction
         $sensorarioCommento->thread = $request->getPost('thread');
         $sensorarioCommento->comment = $request->getPost('commento');
         $sensorarioCommento->user = Yii::app()->user->name;
+        $sensorarioCommento->datetime = date('Y-m-d H:i:s');
 
         $message = '';
         $success = $sensorarioCommento->save();

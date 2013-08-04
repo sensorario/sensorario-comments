@@ -9,7 +9,7 @@
  * @package  Sensorario\Modules\SensorarioComments\Models
  * @author   Simone Gentili <sensorario@gmail.com>
  * @license  http://opensource.org/licenses/MIT MIT
- * @version  GIT: 2.1
+ * @version  GIT: 2.3
  * @link     https://github.com/sensorario/sensorariocomments github repository
  * 
  */
@@ -22,13 +22,14 @@
  * @package  Sensorario\Modules\SensorarioComments\Models
  * @author   Simone Gentili <sensorario@gmail.com>
  * @license  http://opensource.org/licenses/MIT MIT
- * @version  Release: 1.0
+ * @version  Release: 2.3
  * @link     https://github.com/sensorario/sensorariocomments github repository
  * 
  * @property integer $id
  * @property string $thread
  * @property string $comment
  * @property string $user
+ * @property string $datetime
  * 
  */
 class SensorarioCommentsModel extends CActiveRecord
@@ -89,6 +90,7 @@ class SensorarioCommentsModel extends CActiveRecord
           'thread' => 'Thread',
           'comment' => 'Comment',
           'user' => 'User',
+          'datetime' => 'Date',
         );
 
     }
@@ -114,6 +116,7 @@ class SensorarioCommentsModel extends CActiveRecord
         $criteria->compare('thread', $this->thread, true);
         $criteria->compare('comment', $this->comment, true);
         $criteria->compare('user', $this->user);
+        $criteria->compare('datetime', $this->datetime);
 
         $arrayCriteria = array(
           'criteria' => $criteria,
@@ -192,6 +195,16 @@ class SensorarioCommentsModel extends CActiveRecord
 
         return htmlentities($this->comment);
 
+    }
+
+    /**
+     * @since 2.3
+     */
+    public function getDate()
+    {
+        $dateTime = new DateTime($this->datetime);
+        $format = 'd M Y';
+        return $dateTime->format($format);
     }
 
 }
