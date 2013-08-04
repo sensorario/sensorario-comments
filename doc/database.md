@@ -2,7 +2,7 @@
 
 ## Database schema
 
-    Up to version **2.2** comments were not tied to specifics date and time and was not possible to obtain the perception of when they were written.
+Up to version **2.2** comments were not tied to specifics date and time and was not possible to obtain the perception of when they were written.
 
     CREATE TABLE `sensorario_comments` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -14,7 +14,7 @@
 
 ----
 
-    Starting from version **2.3** this is new schema that allow users to see date and time of comments.
+Starting from version **2.3** this is new schema that allow users to see date and time of comments.
 
     CREATE TABLE `sensorario_comments` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
