@@ -36,7 +36,7 @@ class AjaxSensorarioCommentsController extends Controller
     {
 
         return array(
-          'postOnly + stats, index, save, delete'
+            'postOnly + stats, index, save, delete'
         );
 
     }
@@ -48,12 +48,13 @@ class AjaxSensorarioCommentsController extends Controller
      */
     public function actions()
     {
+
         return array(
-          'stats' => 'sensorariocomments.actions.StatsAction',
-          'delete' => 'sensorariocomments.actions.DeleteAction',
-          'save' => 'sensorariocomments.actions.SaveAction',
-          'latest' => 'sensorariocomments.actions.LatestAction',
-          'update' => 'sensorariocomments.actions.UpdateAction',
+            'stats' => 'sensorariocomments.actions.StatsAction',
+            'delete' => 'sensorariocomments.actions.DeleteAction',
+            'save' => 'sensorariocomments.actions.SaveAction',
+            'latest' => 'sensorariocomments.actions.LatestAction',
+            'update' => 'sensorariocomments.actions.UpdateAction',
         );
 
     }

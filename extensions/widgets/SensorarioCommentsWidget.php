@@ -1,9 +1,28 @@
 <?php
 
 /**
+ * Widget to show comments
+ * 
+ * PHP version 5
+ * 
+ * @category Widgets
+ * @package  Sensorario\Modules\SensorarioComments\Extensions\Widgets
+ * @author   Simone Gentili <sensorario@gmail.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  GIT: 2.3
+ * @link     https://github.com/sensorario/sensorariocomments github repository
+ */
+
+
+/**
  * Widget that show comments in view page.
  * 
- * @package Sensorario\Modules\SensorarioComments\Extensions\Widgets
+ * @category Widgets
+ * @package  Sensorario\Modules\SensorarioComments\Extensions\Widgets
+ * @author   Simone Gentili <sensorario@gmail.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 2.3
+ * @link     https://github.com/sensorario/sensorariocomments github repository
  */
 class SensorarioCommentsWidget extends CWidget
 {
@@ -14,43 +33,83 @@ class SensorarioCommentsWidget extends CWidget
      * @var string
      */
     public $thread;
-    
+
     public $assetImage;
 
     /**
      * Init method.
+     * 
+     * @return null This class dont return anithing
      */
     public function init()
     {
 
         Yii::app()->getClientScript()->registerCoreScript('jquery');
 
-        $ajaxLinkController = '/sensorariocomments/ajaxSensorarioComments/';
+        $this->getJavascriptUrls();
 
-        $varPath = 'var url_path = "' . Yii::app()->createUrl($ajaxLinkController . 'save', array('thread' => $this->thread)) . '";' . "\n";
-        $urlStats = 'var url_stats = "' . Yii::app()->createUrl($ajaxLinkController . 'stats', array('thread' => $this->thread)) . '";' . "\n";
-        $urlLatest = 'var url_latests = "' . Yii::app()->createUrl($ajaxLinkController . 'latest', array('thread' => $this->thread)) . '";' . "\n";
-        
-        Yii::app()->getClientScript()->registerScript('url_path', "\n{$varPath} {$urlStats} {$urlLatest}", CClientScript::POS_HEAD);
+        $comments = file_get_contents(__DIR__ . '/comments.js');
+        $functions = file_get_contents(__DIR__ . '/functions.js');
+        $urls = $this->getJavascriptUrls();
 
-        $fileComments = __DIR__ . '/sensorario-comments.js';
-        Yii::app()->getClientScript()->registerScript('sensorario-comments', file_get_contents($fileComments), CClientScript::POS_HEAD);
-        
-        $fileFunctions = __DIR__ . '/sensorario-comments-functions.js';
-        Yii::app()->getClientScript()->registerScript('sensorario-comments-functions', file_get_contents($fileFunctions), CClientScript::POS_HEAD);
-        
-        $image = __DIR__ . '/images/ajax-loader.gif';
-        $this->assetImage = Yii::app()->getAssetManager()->publish($image);
+        Yii::app()
+            ->getClientScript()
+            ->registerScript('urls', $urls, CClientScript::POS_HEAD)
+            ->registerScript('comm', $comments, CClientScript::POS_HEAD)
+            ->registerScript('func', $functions, CClientScript::POS_HEAD);
+
+        $this->assetImage = Yii::app()
+            ->getAssetManager()
+            ->publish(__DIR__ . '/images/ajax-loader.gif');
+
+    }
+
+    /**
+     * This method init all urls to send to javascript functions.
+     * 
+     * @return string Urls var.
+     */
+    public function getJavascriptUrls()
+    {
+
+        $urls = '';
+
+        $controller = '/sensorariocomments/ajaxSensorarioComments/';
+
+        $urlNames = array(
+            'save',
+            'stats',
+            'latest'
+        );
+
+        $params = array(
+            'thread' => $this->thread
+        );
+
+        foreach ($urlNames as $link) {
+            $route = $controller . $link;
+            $url = Yii::app()->createUrl($route, $params);
+            $urls .= "\nvar url_{$link} = \"{$url}\";";
+        }
+
+        return $urls;
 
     }
 
     /**
      * Run method.
+     * 
+     * @return null This method dont return any value.
      */
     public function run()
     {
 
-        $this->render('sensorario-comments');
+        $params = array(
+            'thread' => $this->thread,
+            'assetImage' => $this->assetImage,
+        );
+
+        $this->render('sensorario-comments', $params);
 
     }
 

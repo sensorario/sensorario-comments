@@ -41,9 +41,10 @@ class DeleteAction extends CAction
 
         $id = $request->getPost('id');
 
-        $success = SensorarioCommentsModel::model()
-          ->findByPk($id)
-          ->delete();
+        $comment = SensorarioCommentsModel::model()
+            ->findByPk($id);
+
+        $success = $comment->delete();
 
         $category = 'SensorariocommentsModule.app';
         $messageToTranslate = 'Comment was not deleted.';
@@ -52,17 +53,17 @@ class DeleteAction extends CAction
         $thread = $request->getPost('thread');
 
         $recenti = SensorarioCommentsModel::model()
-          ->thread($thread)
-          ->recenti()
-          ->findAll();
+            ->thread($thread)
+            ->recenti()
+            ->findAll();
 
 
         if (isset($recenti[2])) {
             $isOwner = Yii::app()->user->name === $comment->user;
 
             $params = array(
-              'comment' => $comment,
-              'isOwner' => $isOwner
+                'comment' => $comment,
+                'isOwner' => $isOwner
             );
 
             $errorCode = 1;
@@ -70,7 +71,6 @@ class DeleteAction extends CAction
             $controller = $this->getController();
             $recente = $controller->renderPartial('_item', $params, true);
         } else {
-
             $category = 'SensorariocommentsModule.app';
             $messageToTranslate = 'There are no old messages to show.';
             $message = Yii::t($category, $messageToTranslate);
@@ -83,12 +83,12 @@ class DeleteAction extends CAction
         }
 
         $json = array(
-          'post' => $_POST,
-          'get' => $_GET,
-          'success' => $success,
-          'message' => $message,
-          'recente' => $recente,
-          'errorCode' => $errorCode,
+            'post' => $_POST,
+            'get' => $_GET,
+            'success' => $success,
+            'message' => $message,
+            'recente' => $recente,
+            'errorCode' => $errorCode,
         );
 
         echo json_encode($json);
