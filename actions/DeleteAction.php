@@ -28,7 +28,7 @@
  */
 class DeleteAction extends CAction
 {
-
+    
     /**
      * Run method.
      * 
@@ -50,45 +50,11 @@ class DeleteAction extends CAction
         $messageToTranslate = 'Comment was not deleted.';
         $message = Yii::t($category, $messageToTranslate);
 
-        $thread = $request->getPost('thread');
-
-        $recenti = SensorarioCommentsModel::model()
-            ->thread($thread)
-            ->recenti()
-            ->findAll();
-
-
-        if (isset($recenti[2])) {
-            $isOwner = Yii::app()->user->name === $comment->user;
-
-            $params = array(
-                'comment' => $comment,
-                'isOwner' => $isOwner
-            );
-
-            $errorCode = 1;
-            $comment = $recenti[2];
-            $controller = $this->getController();
-            $recente = $controller->renderPartial('_item', $params, true);
-        } else {
-            $category = 'SensorariocommentsModule.app';
-            $messageToTranslate = 'There are no old messages to show.';
-            $message = Yii::t($category, $messageToTranslate);
-
-            $errorCode = 2;
-            $success = false;
-            $comment = null;
-            $recente = null;
-            $isOwner = false;
-        }
-
         $json = array(
             'post' => $_POST,
             'get' => $_GET,
             'success' => $success,
             'message' => $message,
-            'recente' => $recente,
-            'errorCode' => $errorCode,
         );
 
         echo json_encode($json);

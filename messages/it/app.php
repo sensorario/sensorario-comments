@@ -21,8 +21,6 @@ return array(
   => 'Impossibile recuperare le statistiche.',
   'Message successful saved.'
   => 'Messaggio salvato con successo.',
-  'There are no old messages to show.'
-  => 'Non ci sono vecchi messaggi.',
   'Comment was not deleted.'
   => 'Il commento non è stato cancellato.',
 );

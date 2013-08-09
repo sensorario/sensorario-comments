@@ -21,8 +21,6 @@ return array(
   => 'No hay estadística disponible.',
   'Message successful saved.'
   => 'Mensaje guardado con éxito.',
-  'There are no old messages to show.'
-  => 'No hay mensajes antiguos.',
   'Comment was not deleted.'
   => 'El comentario no se ha eliminado.',
 );

@@ -22,9 +22,6 @@ return array(
   => 'Статистика недоступна.',
   'Message successful saved.'
   => 'Сообщение успешной спасен.',
-  'There are no old messages to show.'
-  => 'Там ​​нет старые сообщения, '
-  . 'чтобы показать.',
   'Comment was not deleted.'
   => 'Il Commento Non è стата cancellato.',
 );

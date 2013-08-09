@@ -21,8 +21,6 @@ return array(
   => 'Statistiques indisponibles.',
   'Message successful saved.'
   => 'Message enregistré avec succès.',
-  'There are no old messages to show.'
-  => 'Il n\'y a pas d\'anciens messages à montrer.',
   'Comment was not deleted.'
   => 'Commentaire n\'a pas été supprimé.',
 );

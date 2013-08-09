@@ -21,8 +21,6 @@ return array(
   => 'Statistik nicht verfügbar.',
   'Message successful saved.'
   => 'Nachricht erfolgreich gespeichert.',
-  'There are no old messages to show.'
-  => 'Es gibt keine alten Nachrichten.',
   'Comment was not deleted.'
   => 'Kommentar wurde nicht gelöscht.',
 );

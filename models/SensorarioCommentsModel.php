@@ -206,9 +206,11 @@ class SensorarioCommentsModel extends CActiveRecord
      */
     public function getDate()
     {
+        
         $dateTime = new DateTime($this->datetime);
         $format = 'd M Y';
         return $dateTime->format($format);
+        
     }
 
 }
